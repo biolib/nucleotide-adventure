@@ -1,0 +1,37 @@
+biolib_version: 2
+modules:
+    main:
+        image: 'local-docker://fasta-to-nucleotides:latest'
+        command: 'python3 main.py'
+        input_files:
+            - COPY / /
+        output_files: []
+        source_files: []
+
+arguments:
+    -   default_value: 'ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG'
+        description: 'Enter DNA Sequence:'
+        key: '--sequence'
+        key_value_separator: ' '
+        required: true
+        type: text
+
+    -   default_value: 'no'
+        description: 'Calculate reverse-complement?'
+        key: '--rc'
+        key_value_separator: ' '
+        required: false
+        type: toggle
+        options:
+            'off': 'no'
+            'on': 'yes'
+
+    -   default_value: 'no'
+        description: 'Translate RNA to Protein?'
+        key: '--translate'
+        key_value_separator: ' '
+        required: false
+        type: toggle
+        options:
+            'off': 'no'
+            'on': 'yes'
