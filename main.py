@@ -5,6 +5,7 @@ from Bio.Seq import Seq
 parser = argparse.ArgumentParser()
 parser.add_argument('--sequence')
 parser.add_argument('--rc')
+parser.add_argument('--translate')
 args = parser.parse_args()
 
 dna = Seq(args.sequence)
